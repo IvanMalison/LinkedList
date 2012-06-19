@@ -1,5 +1,6 @@
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
+import java.io.IOException;
 
 public class LinkedListTester {
     static BufferedReader br = new BufferedReader(new InputStreamReader (System.in));
@@ -27,7 +28,7 @@ public class LinkedListTester {
 		    ll.insertAt(getIndex(), getValue());
 		    break;
 		case 4:
-		    ll.get(getIndex());
+		    System.out.println(ll.get(getIndex()));
 		    break;
 		case 5:
 		    ll.remove(getIndex());
@@ -42,7 +43,7 @@ public class LinkedListTester {
 		    System.out.println("Input number was not an option");
 		    break;
 		}
-	    } catch(Exception e) {
+	    } catch(IOException e) {
 		System.err.print("Input was not a number... ");
 		System.err.println(e.getMessage());
 	    }

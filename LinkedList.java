@@ -241,31 +241,9 @@ public class LinkedList<Type> {
 }
 
 class StringLinkedList extends LinkedList<String> {
-
     public StringLinkedList() {
 	comparator = String.CASE_INSENSITIVE_ORDER;
-    }    
-    
-    /*
-    public static void main(String[] args) {
-	StringLinkedList ll = new StringLinkedList();
-	int count = 0;
-	while(count < 10) {
-	    ll.insertAt(0, String.format("%d", count));
-	    count++;
-	}
-	ll.insertAt(3, "44");
-	ll.insertAt(5, "0");
-	ll.insertAt(8, "!");
-	ll.insertAt(9, "assmucn");
-	ll.remove(2);
-	ll.printValues();
-	ll.sort();
-	ll.printValues();
-	ll.reverse();
-	ll.printValues();
-	}*/
-
+    }
 }
 
 class IntLinkedList extends LinkedList<Integer> implements Comparator<Integer> {
