@@ -134,6 +134,7 @@ public class LinkedList<Type> {
     }
 
     public void printValues() {
+	if(head == null) return;
 	for(Node<Type> runner = head; runner != null; runner = runner.next) {
 	    if(runner instanceof Object) {
 		System.out.print((Object) runner.val);
@@ -243,7 +244,8 @@ class StringLinkedList extends LinkedList<String> {
     public StringLinkedList() {
 	comparator = String.CASE_INSENSITIVE_ORDER;
     }    
-
+    
+    /*
     public static void main(String[] args) {
 	StringLinkedList ll = new StringLinkedList();
 	int count = 0;
@@ -261,6 +263,32 @@ class StringLinkedList extends LinkedList<String> {
 	ll.printValues();
 	ll.reverse();
 	ll.printValues();
+	}*/
+
+}
+
+class IntLinkedList extends LinkedList<Integer> implements Comparator<Integer> {
+    public IntLinkedList() {
+	comparator = this;
     }
 
+    public void insertInOrder(int v) {
+	insertInOrder(new Integer(v));
+    }
+
+    public void insertAtHead(int v) {
+	insertAtHead(new Integer(v));
+    }
+
+    public void insertAt(int i, int v) {
+	insertAt(i, new Integer(v));	
+    }
+
+    public int compare(Integer a, Integer b) {
+	return a.intValue() < b.intValue() ? -1 : (a.intValue() == b.intValue() ? 0 : 1);
+    }
+    
+    public boolean equals(Object o) {
+	return o == this;
+    }
 }
