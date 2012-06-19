@@ -32,12 +32,13 @@ public class LinkedList<Type> {
 		throw new Exception("The list is not currently ordered.");
 	    }
 	    Node<Type> node = new Node<Type>(v);
-	    if(head == null) {
+	    if(head == null || comparator.compare(head.val, node.val) >= 0) {
+		node.next = head;
 		head = node;
 		return;
 	    }
 	    Node<Type> runner = head;
-	    while(runner.next != null && comparator.compare(v, runner.next.val) < 0) {
+	    while(runner.next != null && comparator.compare(v, runner.next.val) > 0) {
 		runner = runner.next;
 	    }
 	    node.next = runner.next;
